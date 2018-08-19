@@ -29,7 +29,7 @@ def help(bot, update):
     """)
 
 def echo(bot, update):
-    """Echo the user message."""
+    """Responder comandos invalidos"""
     update.message.reply_text("Comando inválido - ver lista de comandos")
 
 
