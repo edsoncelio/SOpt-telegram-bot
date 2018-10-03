@@ -2,7 +2,7 @@
 # configuracoes de chamada a StackAPI
 from stackapi import StackAPI
 import html
-import datetime
+# import datetime
 
 
 # as datas sao usadas em timestamp, precisa converter.
@@ -27,7 +27,7 @@ def buscar_questoes(tag="python"):
     # return str(html.unescape(questoes_python['items'][0]['title']))
 
     for i in range(0, len(questoes_python['items'])):
-        resultado.append(""" 
+        resultado.append("""
         Titulo: {}
         Link: {}
         Criacao: {}
