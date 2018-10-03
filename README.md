@@ -8,7 +8,17 @@
 #### Implementações futuras
 * Autenticação via *OAuth*, usando a API oficial, para notificação de comentários e votos do usuário logado.
 
-#### Instalação e configuração
+#### Executando bot utilizando Docker
+1. Crie a imagem utilizando o comando:
+    ```shell
+    $ docker build . -t SOpt-telegram
+    ```
+2. Depois basta executar o container com a imagem criada, utilizando o comando:
+    ```shell
+    $ docker run SOpt-telegram
+    ```
+
+#### Instalação e configuração (local)
 1. Instalação das dependências:
 `pip install -r requirements.txt`
 
