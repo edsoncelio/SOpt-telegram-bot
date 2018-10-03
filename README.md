@@ -1,3 +1,4 @@
+![](https://travis-ci.org/edsoncelio/SOpt-telegram-bot.svg?branch=master)
 ## SOpt *telegram bot*
 *Bot* do Telegram para o *StackOverFlow* em português (SOpt) 
 
