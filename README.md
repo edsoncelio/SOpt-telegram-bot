@@ -25,3 +25,5 @@
      Para deixar executando em *background* e independente da sessão do *tty*:
 
      `nohup python3 bot.py &`
+
+**obs:** *projeto implementado como necessidade de um melhor acompanhamento das perguntas no SOpt, desenvolvido nas horas vagas.*
