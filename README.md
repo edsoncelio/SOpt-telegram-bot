@@ -1,6 +1,6 @@
-![](https://travis-ci.org/edsoncelio/SOpt-telegram-bot.svg?branch=master)
+
 ## SOpt *telegram bot*
-*Bot* do Telegram para o *StackOverFlow* em português (SOpt) 
+*Bot* do Telegram para o *StackOverFlow* em português (SOpt) ![](https://travis-ci.org/edsoncelio/SOpt-telegram-bot.svg?branch=master) 
 
 #### Funcionalidades básicas
 * Consulta  e notificação de questões por `tags` e palavras-chaves, exibição no formato:
