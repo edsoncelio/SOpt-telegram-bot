@@ -27,8 +27,12 @@ def myTag(bot, update):
         update.message.reply_text("Você não possui nenhuma tag adicionada")
 
 def addTag(bot, update, args):
-    mytags.extend(args)
-    update.message.reply_text("Minhas tags:\n\n" + tagsToString())
+    if args:
+        mytags.extend(args)
+        mytags = list(set(mytags))
+        update.message.reply_text("Minhas tags:\n\n" + tagsToString())
+    else:
+        update.message.reply_text("É necessário passar o nome da tag que deseja adicionar")
 
 def deleteTag(bot, update, args):
     if args:
