@@ -1,4 +1,3 @@
-
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
 from sopt import buscar_questoes
@@ -63,6 +62,7 @@ def help(bot, update):
     Bot para perguntas do SOpt - em construção!
     """)
 
+
 def echo(bot, update):
     """Responder comandos invalidos"""
     update.message.reply_text("Comando inválido - ver lista de comandos")
@@ -76,7 +76,7 @@ def error(bot, update, error):
 def main():
     """Iniciar o bot"""
     # Criar o EventHandler
-    config = json.loads(open(os.getcwd()[0:int(len(os.getcwd())-4)]+"/config/token.json").read())
+    config = json.loads(open(os.getcwd()[0:int(len(os.getcwd()) - 4)] + "/config/token.json").read())
     updater = Updater(config["token"])
 
     # Obter o dispatcher para registrar os handlers

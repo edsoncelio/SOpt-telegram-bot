@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-#configuracoes de chamada a StackAPI
+# configuracoes de chamada a StackAPI
 from stackapi import StackAPI
 import html
 import datetime
@@ -33,5 +33,6 @@ def buscar_questoes(tags):
 				Titulo: {}
 				Link: {}
 				Criacao: {}
-				""".format(html.unescape(questoes_python['items'][i]['title']),questoes_python['items'][i]['link'],questoes_python['items'][i]['creation_date'] ))
+				""".format(html.unescape(questoes_python['items'][i]['title']),questoes_python['items'][i]['link'],
+									questoes_python['items'][i]['creation_date'] ))
 	return resultado
