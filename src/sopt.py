@@ -2,8 +2,15 @@
 # configuracoes de chamada a StackAPI
 from stackapi import StackAPI
 import html
-import datetime
-import time
+from datetime import datetime, timedelta
+#import datetime
+#import time
+
+#hoje = datetime.today()
+#inicio = hoje - timedelta(days=1)
+
+tsHoje = str(hoje.timestamp()).split(".")[0]
+tsInicio = str(inicio.timestamp()).split(".")[0]
 
 #as datas sao usadas em timestamp, precisa converter.
 # Ex de entrada: mes-dia-ano
@@ -18,13 +25,23 @@ def buscar_questoes(tags):
 	#definicao do pt.stackoverflow
 	sopt = StackAPI("pt.stackoverflow")
 
-	#conf de numero de resultados
-	sopt.page_size = 100
-	sopt.max_pages = 1
-	resultado = []
-	#busca por questoes/tag de acordo com intervalo de tempo(atualmente de 1 dia)
-	ts = int(time.time())
-	questoes_python = sopt.fetch('questions', min=1, fromdate=ts - 54000, todate=ts)
+
+	  #conf de numero de resultados
+	  #sopt.page_size = 100
+	  #sopt.max_pages = 1
+	  #resultado = []
+	  #busca por questoes/tag de acordo com intervalo de tempo(atualmente de 1 dia)
+	  #ts = int(time.time())
+	  #questoes_python = sopt.fetch('questions', min=1, fromdate=ts - 54000, todate=ts)
+
+    # conf de numero de resultados
+    sopt.page_size = 100
+    sopt.max_pages = 1
+    resultado = []
+    # busca por questoes/tag de acordo com intervalo de tempo(atualmente de 1 dia)
+    questoes_python = sopt.fetch('questions', min=1, fromdate=tsInicio, todate=tsHoje, tagged=tag)
+    # return str(html.unescape(questoes_python['items'][0]['title']))
+
 
 	for i in range(0, len(questoes_python['items'])):
 		for value in tags:
