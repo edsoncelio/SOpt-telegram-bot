@@ -23,7 +23,7 @@
      Para deixar executando em *background* e independente da sessão do *tty*:
 
      `nohup python3 bot.py &`
----
+
 ### Instalação utilizando Docker
 1. Crie a imagem utilizando o comando:
     ```shell
