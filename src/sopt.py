@@ -35,27 +35,3 @@ def buscar_questoes(tags):
 				Criacao: {}
 				""".format(html.unescape(questoes_python['items'][i]['title']),questoes_python['items'][i]['link'],questoes_python['items'][i]['creation_date'] ))
 	return resultado
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
