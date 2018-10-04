@@ -2,7 +2,14 @@
 # configuracoes de chamada a StackAPI
 from stackapi import StackAPI
 import html
-# import datetime
+from datetime import datetime, timedelta
+
+
+hoje = datetime.today()
+inicio = hoje - timedelta(days=1)
+
+tsHoje = str(hoje.timestamp()).split(".")[0]
+tsInicio = str(inicio.timestamp()).split(".")[0]
 
 
 # as datas sao usadas em timestamp, precisa converter.
@@ -23,7 +30,7 @@ def buscar_questoes(tag="python"):
     sopt.max_pages = 1
     resultado = []
     # busca por questoes/tag de acordo com intervalo de tempo(atualmente de 1 dia)
-    questoes_python = sopt.fetch('questions', min=1, fromdate=1534582800, todate=1534636800, tagged=tag)
+    questoes_python = sopt.fetch('questions', min=1, fromdate=tsInicio, todate=tsHoje, tagged=tag)
     # return str(html.unescape(questoes_python['items'][0]['title']))
 
     for i in range(0, len(questoes_python['items'])):

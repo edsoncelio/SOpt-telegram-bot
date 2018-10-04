@@ -15,6 +15,7 @@ install:
 # command to run tests
 script:
   - flake8 .
+  - pytest
 #  - pytest --conv=pages
 #after_success:
 #  - codecov
