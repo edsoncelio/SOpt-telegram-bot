@@ -13,7 +13,6 @@ logger = logging.getLogger(__name__)
 
 mytags = ["python"]
 
-
 def start(bot, update):
     """Mensagem inicial do comando /start"""
     update.message.reply_text('Iniciar configuração - mostrar lista de comandos')
@@ -22,14 +21,25 @@ def tagsToString():
     return "\n".join(str(x) for x in mytags)
 
 def myTag(bot, update):
-    update.message.reply_text("Minhas tags:\n\n" + tagsToString())
+    if mytags:
+        update.message.reply_text("Minhas tags:\n\n" + tagsToString())
+    else:
+        update.message.reply_text("Você não possui nenhuma tag adicionada")
 
 def addTag(bot, update, args):
     mytags.extend(args)
     update.message.reply_text("Minhas tags:\n\n" + tagsToString())
 
 def deleteTag(bot, update, args):
-    return
+    if args:
+        if args[0] in mytags:
+            mytags.remove(args[0])
+            update.message.reply_text("Tag " + args[0] + " deletada")
+        else:
+            update.message.reply_text(args[0] + " não é uma de suas tags")
+        myTag(bot, update)
+    else:
+        update.message.reply_text("É necessário passar o nome da tag que deseja remover")
 
 def ver_perguntas(bot, update, args):
     max_default = 10
