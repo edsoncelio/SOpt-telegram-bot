@@ -1,6 +1,10 @@
 
-## SOpt *telegram bot*
-*Bot* do Telegram para o *StackOverFlow* em português (SOpt) ![](https://travis-ci.org/edsoncelio/SOpt-telegram-bot.svg?branch=master) 
+## StackOverFlowPt *telegram bot*
+
+![](https://travis-ci.org/edsoncelio/SOpt-telegram-bot.svg?branch=master) 
+
+*Bot* do Telegram para o *StackOverFlow* em português (SOpt) 
+
 
 ### Instalação e configuração
 1. Instalação das dependências:
@@ -19,7 +23,7 @@
      Para deixar executando em *background* e independente da sessão do *tty*:
 
      `nohup python3 bot.py &`
-
+---
 ### Instalação utilizando Docker
 1. Crie a imagem utilizando o comando:
     ```shell
