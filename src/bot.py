@@ -11,18 +11,39 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
+mytags = ["python"]
+
 
 def start(bot, update):
     """Mensagem inicial do comando /start"""
     update.message.reply_text('Iniciar configuração - mostrar lista de comandos')
 
-def ver_perguntas(bot, update):
-	#reply_keyboard = [['python', 'php', 'javascript']]
-	
-	#buscar questao da lista de mais recentes da tag 'python'(intervalo de 1 dia)
-	questoes = buscar_questoes()
-	update.message.reply_text(questoes[0])
-	
+def tagsToString():
+    return "\n".join(str(x) for x in mytags)
+
+def myTag(bot, update):
+    update.message.reply_text("Minhas tags:\n\n" + tagsToString())
+
+def addTag(bot, update, args):
+    mytags.extend(args)
+    update.message.reply_text("Minhas tags:\n\n" + tagsToString())
+
+def deleteTag(bot, update, args):
+    return
+
+def ver_perguntas(bot, update, args):
+    max_default = 10
+
+    if args:
+        max_default = int(args[0])
+    #reply_keyboard = [['python', 'php', 'javascript']]
+
+    #buscar questao da lista de mais recentes da tag 'python'(intervalo de 1 dia)
+    questoes = buscar_questoes(mytags)
+    total = len(questoes)
+    for i in range(0, max_default if total > max_default else total):
+        update.message.reply_text(questoes[i])
+
 def help(bot, update):
     update.message.reply_text("""
     Bot para perguntas do SOpt - em construção!
@@ -50,7 +71,10 @@ def main():
     # comandos habilitados
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
-    dp.add_handler(CommandHandler("buscar", ver_perguntas))
+    dp.add_handler(CommandHandler("buscar", ver_perguntas, pass_args=True))
+    dp.add_handler(CommandHandler("mytag", myTag))
+    dp.add_handler(CommandHandler("addtag", addTag, pass_args=True))
+    dp.add_handler(CommandHandler("deletetag", deleteTag, pass_args=True))
 
     # p/ comandos não reconhecidos
     dp.add_handler(MessageHandler(Filters.text, echo))
