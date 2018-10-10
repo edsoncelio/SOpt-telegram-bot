@@ -1,6 +1,8 @@
 language: python
 python:
-  - "3.6.6"
+  - 2.7
+  - 3.2
+  - 3.5
 #services:
   - docker
 # command to install dependencies
@@ -12,7 +14,7 @@ install:
 script:
   - flake8 .
   - pytest
-  - - docker ps | grep -q soptbot
+  - docker ps | grep -q soptbot
 #  - pytest --conv=pages
 #after_success:
 #  - codecov
