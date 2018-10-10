@@ -2,20 +2,17 @@ language: python
 python:
   - "3.6.6"
 #services:
-#  postgresql
-#addons:
-#  postgresql: '9.5'
+  - docker
 # command to install dependencies
 install:
   # - cp contrib/env-sample .env
   - pip install -r requirements-dev.txt
-#before_script:
-#  - psql -c "CREATE DATABASE testdb;" -U postgres
-#  - python manage.py migrate --noinput
+  - docker build -t soptbot .
 # command to run tests
 script:
   - flake8 .
   - pytest
+  - - docker ps | grep -q soptbot
 #  - pytest --conv=pages
 #after_success:
 #  - codecov
