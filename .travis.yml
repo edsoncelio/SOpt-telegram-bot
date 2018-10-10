@@ -8,6 +8,7 @@ services:
 
 install:
   - docker build -t soptbot .
+  - docker run -d soptbot
 
 # command to install dependencies
 before_script:
