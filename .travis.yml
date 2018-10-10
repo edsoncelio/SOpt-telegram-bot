@@ -18,5 +18,5 @@ before_script:
 script:
   - flake8 .
   - pytest
-  - docker ps | grep -q soptbot
+  - docker ps | grep soptbot
 
