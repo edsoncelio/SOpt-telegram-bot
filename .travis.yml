@@ -1,20 +1,21 @@
 language: python
 python:
   - 2.7
-  - 3.2
   - 3.5
-#services:
+
+services:
   - docker
-# command to install dependencies
+
 install:
-  # - cp contrib/env-sample .env
-  - pip install -r requirements-dev.txt
   - docker build -t soptbot .
+
+# command to install dependencies
+before_script:
+    -  pip install -r requirements-dev.txt
+  
 # command to run tests
 script:
   - flake8 .
   - pytest
   - docker ps | grep -q soptbot
-#  - pytest --conv=pages
-#after_success:
-#  - codecov
+
